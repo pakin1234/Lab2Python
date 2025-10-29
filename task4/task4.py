@@ -3,8 +3,10 @@
 	- вывести размер стипендии. Если средняя оценка равна 5, то стипендия 8000р для аспиранта и 6000р для студента, если меньше 5, то стипендия для аспиранта 6000р, для студента 4000р, в других случаях стипендия 0р
 	- Сравнение размера стипендии с другим студентом/аспирантом (больше или меньше)'''
 class Student:
-    full_schoolarship = 6000
-    less_schoolarship = 4000
+    full_scholarship = 6000
+    less_scholarship = 4000
+	excellent_mark = 5
+	good_mark = 4
 
     def __init__(self, surname: str, name: str, middle_name: str, age: int, group_number: str, gpa: float):
         self.name = name
@@ -18,8 +20,8 @@ class Student:
         return f"ФИО: {self.surname} {self.name} {self.middle_name}; Возраст: {self.age}"
     
     def scholarship(self) -> int:
-        if self.gpa == 5: return self.full_schoolarship
-        elif 4 <= self.gpa < 5: return self.less_schoolarship
+        if self.gpa == excellent_mark: return self.full_scholarship
+        elif good_mark <= self.gpa < excellent_mark: return self.less_scholarship
         else: return 0
 
     def compare_scholarship(self, other_student) -> str:
@@ -35,8 +37,8 @@ class Student:
             return "Стипендии одинаковые"
         
 class Aspirant(Student):
-    full_schoolarship = 8000
-    less_schoolarship = 6000
+    full_scholarship = 8000
+    less_scholarship = 6000
 
     def __init__(self, name: str, surname: str, middle_name: str, age: int, group_number: str, gpa: float, scientific_work: str):
         super().__init__(name, surname, middle_name, age, group_number, gpa)
